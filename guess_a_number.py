@@ -2,13 +2,17 @@ import random
 # config
 low = 1
 high = 100
+limit = 10
 
+# start game
 rand = random.randint(low, high)
 print("I'm thinking of a number from " + str(low) + " to " + str(high) + ".");
 
 guess = -1
+tries = 0
 
-while guess != rand:
+# play game
+while guess != rand and tries < limit:
     guess = input("Take a guess: ")
     guess = int(guess)
     
@@ -19,4 +23,11 @@ while guess != rand:
     else:
         print("You got it!")
 
-print("Game over")
+    tries += 1
+
+# end game
+if guess == rand:
+    print("You win! Good job!")
+else:
+    print("Wow your just a waste in space aren't you? Game Over! Your number was " + str(rand) + ".")
+
