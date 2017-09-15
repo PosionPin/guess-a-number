@@ -1,8 +1,20 @@
 import random
+
 # config
 low = 1
 high = 100
 limit = 10
+
+#helper functions
+def get_guess ():
+    while True:
+        guess = input("Take a guess: ")
+
+        if guess.isnumeric():
+            guess = int(guess)
+            return guess
+        else:
+            print("Please select a positive number you nimrod")
 
 # start game
 rand = random.randint(low, high)
@@ -13,8 +25,7 @@ tries = 0
 
 # play game
 while guess != rand and tries < limit:
-    guess = input("Take a guess: ")
-    guess = int(guess)
+    guess = get_guess()
     
     if guess < rand:
         print("You guessed too low.")
