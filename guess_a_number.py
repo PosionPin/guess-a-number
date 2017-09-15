@@ -38,7 +38,7 @@ while guess != rand and tries < limit:
 
 # end game
 if guess == rand:
-    print("You win! Good job!")
+    print("You win! Good job! Now go get a life. (Joke by Elijah LeBlanc)")
 else:
     print("Wow your just a waste in space aren't you? Game Over! Your number was " + str(rand) + ".")
 
