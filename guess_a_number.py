@@ -16,29 +16,44 @@ def get_guess ():
         else:
             print("Please select a positive number you nimrod")
 
-# start game
-rand = random.randint(low, high)
-print("I'm thinking of a number from " + str(low) + " to " + str(high) + ".");
+def play_again ():
+    while True:
+        decision = input("Would you like to play this 'good' game again? (y or n)")
 
-guess = -1
-tries = 0
+        if decision == 'y' or decision == 'yes':
+            return True
+        elif decision == 'n' or decision == 'no':
+            return False
+        else:
+            print("Can you really not type 'y' or 'n'?")
+again = True
 
-# play game
-while guess != rand and tries < limit:
-    guess = get_guess()
-    
-    if guess < rand:
-        print("You guessed too low.")
-    elif guess > rand:
-        print("You guessed too high.")
+while again:
+    # start game
+    rand = random.randint(low, high)
+    print("I'm thinking of a number from " + str(low) + " to " + str(high) + ".");
+
+    guess = -1
+    tries = 0
+
+    # play game
+    while guess != rand and tries < limit:
+        guess = get_guess()
+        
+        if guess < rand:
+            print("You guessed too low.")
+        elif guess > rand:
+            print("You guessed too high.")
+        else:
+            print("You got it!")
+
+        tries += 1
+
+    # end game
+    if guess == rand:
+        print("You win! Good job! Now go get a life. (Joke by Elijah LeBlanc)")
     else:
-        print("You got it!")
+        print("Wow your just a waste in space aren't you? Game Over! Your number was " + str(rand) + ".")
+    again = play_again()
 
-    tries += 1
-
-# end game
-if guess == rand:
-    print("You win! Good job! Now go get a life. (Joke by Elijah LeBlanc)")
-else:
-    print("Wow your just a waste in space aren't you? Game Over! Your number was " + str(rand) + ".")
-
+print("Goodbye")
