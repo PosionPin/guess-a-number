@@ -12,7 +12,7 @@ def show_start_screen():
     print("**************************")
 
 def show_credits():
-    print("This awesome game was created by Chase Dunlap.")
+    print("This awesome game was created by Coop Dogg.")
     
 def get_guess(current_low, current_high):
     """
