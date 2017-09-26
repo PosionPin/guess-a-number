@@ -12,30 +12,33 @@ def show_start_screen():
     print("**************************")
 
 def show_credits():
-    print("This awesome game was created by Coop Dogg.")
+    print("This awesome game was created by Chase Dunalp.")
     
 def get_guess(current_low, current_high):
-    """
-    Returns a truncated average of the current low and high
-    """
-    pass
+    g = (current_low + current_high) // 2
+    return g
 
 def pick_number():
-    """
-    Ask the player to pick a number and waits until the player
-    confirms they have a number by pressing enter.
-    """
-    pass
+    while True:
+        print("Think of a number between " + str(low) + " to " + str(high) + ".")
+        print(" ")
+        ready = input("Type 'y' when your ready ")
+
+        if ready == 'y':
+            return False
+        else:
+            print(" ")
+            print("I don't understand. Please enter 'y' when your ready")
+            print(" ")
 
 def check_guess(guess):
-    """
-    Ask the player if the computer's number was too high, too low,
-    or just right.
-    Returns -1 if the guess was too low
-             0 if the guess was correct
-             1 if the guess was too high
-    """
-    pass
+    print(" ")
+    print("Is " + str(guess) + " your number?")
+    print(" ")
+    r = input("If it was correct put 0. If it was to high put 1. If it was too low put -1")
+    #Returns -1 if the guess was too low
+             #0 if the guess was correct
+             #1 if the guess was too high
 
 def show_result():
     pass
