@@ -1,8 +1,13 @@
+#Chase Dunlap
+#9/27/17
+#A program where the player thinks of a number and the computer tries to predict it.
+
+
 import random
 
 # config
 low = 1
-high = 1000
+high = 100
 
 
 # helper functions
@@ -12,6 +17,7 @@ def show_start_screen():
     print("**************************")
 
 def show_credits():
+    print(" ")
     print("This awesome game was created by Chase Dunalp.")
     
 def get_guess(current_low, current_high):
@@ -19,32 +25,35 @@ def get_guess(current_low, current_high):
     return g
 
 def pick_number():
-    while True:
+        print(" ")
         print("Think of a number between " + str(low) + " to " + str(high) + ".")
         print(" ")
-        ready = input("Type 'y' when your ready ")
+        input("Press enter when your ready ")
 
-        if ready == 'y':
-            return False
-        else:
-            print(" ")
-            print("I don't understand. Please enter 'y' when your ready")
-            print(" ")
 
 def check_guess(guess):
     print(" ")
     print("Is " + str(guess) + " your number?")
     print(" ")
-    r = input("If it was correct put 0. If it was to high put 1. If it was too low put -1")
-    #Returns -1 if the guess was too low
-             #0 if the guess was correct
-             #1 if the guess was too high
+    r = input("If it was correct put 'yes'. If it was to high put 'lower'. If it was too low put 'higher'.")
+
+    if r == 'yes':
+        return 0
+    elif r == 'lower':
+        return -1
+    elif r == 'higher':
+        return 1
+    else:
+        print(" ")
+        print("Please type 'yes' if it was correct, 'lower' if it was too high, or 'higher' if it was too low")
+
 
 def show_result():
     pass
 
 def play_again():
     while True:
+        print(" ")
         decision = input("Would you like to play again? (y/n) ")
 
         if decision == 'y' or decision == 'yes':
@@ -52,6 +61,7 @@ def play_again():
         elif decision == 'n' or decision == 'no':
             return False
         else:
+            print(" ")
             print("I don't understand. Please enter 'y' or 'n'.")
 
 def play():
@@ -67,11 +77,11 @@ def play():
         result = check_guess(guess)
 
         if result == -1:
-            # adjust current high
-            pass
+            current_high = guess
+
         elif result == 1:
-            # adjust current low
-            pass
+            current_low = guess
+
 
     show_result()
 
