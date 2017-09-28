@@ -5,43 +5,73 @@
 
 import random
 
-# config
-low = 1
-high = 100
-
 
 # helper functions
 def show_start_screen():
-    print("**************************")
-    print("*  Guess a Number A.I.!  *")
-    print("**************************")
+    print(""" ██████╗ ██╗   ██╗███████╗███████╗███████╗       █████╗       ███╗   ██╗██╗   ██╗███╗   ███╗██████╗ ███████╗██████╗      █████╗    ██╗
+██╔════╝ ██║   ██║██╔════╝██╔════╝██╔════╝      ██╔══██╗      ████╗  ██║██║   ██║████╗ ████║██╔══██╗██╔════╝██╔══██╗    ██╔══██╗   ██║
+██║  ███╗██║   ██║█████╗  ███████╗███████╗█████╗███████║█████╗██╔██╗ ██║██║   ██║██╔████╔██║██████╔╝█████╗  ██████╔╝    ███████║   ██║
+██║   ██║██║   ██║██╔══╝  ╚════██║╚════██║╚════╝██╔══██║╚════╝██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██╗██╔══╝  ██╔══██╗    ██╔══██║   ██║
+╚██████╔╝╚██████╔╝███████╗███████║███████║      ██║  ██║      ██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██████╔╝███████╗██║  ██║    ██║  ██║██╗██║
+ ╚═════╝  ╚═════╝ ╚══════╝╚══════╝╚══════╝      ╚═╝  ╚═╝      ╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝    ╚═╝  ╚═╝╚═╝╚═╝""")
 
 def show_credits():
     print(" ")
-    print("This awesome game was created by Chase Dunalp.")
+    print(""" ██████╗██████╗ ███████╗ █████╗ ████████╗███████╗██████╗     ██████╗ ██╗   ██╗        ██████╗██╗  ██╗ █████╗ ███████╗███████╗
+██╔════╝██╔══██╗██╔════╝██╔══██╗╚══██╔══╝██╔════╝██╔══██╗    ██╔══██╗╚██╗ ██╔╝██╗    ██╔════╝██║  ██║██╔══██╗██╔════╝██╔════╝
+██║     ██████╔╝█████╗  ███████║   ██║   █████╗  ██║  ██║    ██████╔╝ ╚████╔╝ ╚═╝    ██║     ███████║███████║███████╗█████╗  
+██║     ██╔══██╗██╔══╝  ██╔══██║   ██║   ██╔══╝  ██║  ██║    ██╔══██╗  ╚██╔╝  ██╗    ██║     ██╔══██║██╔══██║╚════██║██╔══╝  
+╚██████╗██║  ██║███████╗██║  ██║   ██║   ███████╗██████╔╝    ██████╔╝   ██║   ╚═╝    ╚██████╗██║  ██║██║  ██║███████║███████╗
+ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═════╝     ╚═════╝    ╚═╝           ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝""")
     
 def get_guess(current_low, current_high):
     g = (current_low + current_high) // 2
     return g
 
 def pick_number():
-        print(" ")
-        print("Think of a number between " + str(low) + " to " + str(high) + ".")
-        print(" ")
-        input("Press enter when your ready ")
+    print(" ")
+    pick_low = input("What do you want the low to be?")
+
+    while True:
+        if low.isnumeric():
+            print(" ")
+            print("Thanks")
+            print(" ")
+            break
+        else:
+            print(" ")
+            print("Please type a number")
+            print(" ")
+        
+    pick_high = input ("What do you want the high to be")
+
+    while True:
+        if high.isnumeric():
+            print(" ")
+            print("Thanks")
+            break
+        else:
+            print(" ")
+            print("Please type a number")
+        
+    print(" ")
+    print("Think of a number between " + str(pick_low) + " to " + str(pick_high) + ".")
+    print(" ")
+    input("Press enter when your ready ")
 
 
 def check_guess(guess):
     print(" ")
     print("Is " + str(guess) + " your number?")
     print(" ")
-    r = input("If it was correct put 'yes'. If it was to high put 'lower'. If it was too low put 'higher'.")
+    r = input("If it was correct put 'yes'. If it was to high put 'lower'. If it was too low put 'higher'.    ")
+    r = r.lower()
 
-    if r == 'yes':
+    if r == 'yes' or r == 'y':
         return 0
-    elif r == 'lower':
+    elif r == 'lower' or r == 'l':
         return -1
-    elif r == 'higher':
+    elif r == 'higher' or r == 'h':
         return 1
     else:
         print(" ")
@@ -54,7 +84,10 @@ def show_result():
 def play_again():
     while True:
         print(" ")
+        print("I got it!")
+        print(" ")
         decision = input("Would you like to play again? (y/n) ")
+        decision = decision.lower()
 
         if decision == 'y' or decision == 'yes':
             return True
@@ -65,9 +98,9 @@ def play_again():
             print("I don't understand. Please enter 'y' or 'n'.")
 
 def play():
-    current_low = low
-    current_high = high
     result = -1
+
+    pick_high_and_low()
     
     pick_number()
     
@@ -81,6 +114,7 @@ def play():
 
         elif result == 1:
             current_low = guess
+
 
 
     show_result()
