@@ -7,6 +7,40 @@ import random
 
 
 # helper functions
+
+def get_name():
+    print(" ")
+    player_name = input("What's your name?    ")
+    print(" ")
+    return player_name
+
+def pick_lowz(player_name):
+    print(" ")
+
+    while True:
+        pick_low = input("What do you want the low to be, " + player_name + "?")
+        if pick_low.isnumeric():
+            print(" ")
+            print("Thanks")
+            print(" ")
+            break
+        else:
+            print(" ")
+            print("Please type a number")
+            print(" ")
+            
+def pick_highz(player_name):
+    while True:
+        pick_high = input ("What do you want the high to be, " + player_name + "?")
+        if pick_high.isnumeric():
+            print(" ")
+            print("Thanks")
+            break
+        else:
+            print(" ")
+            print("Please type a number")
+            print(" ")
+
 def show_start_screen():
     print(""" ██████╗ ██╗   ██╗███████╗███████╗███████╗       █████╗       ███╗   ██╗██╗   ██╗███╗   ███╗██████╗ ███████╗██████╗      █████╗    ██╗
 ██╔════╝ ██║   ██║██╔════╝██╔════╝██╔════╝      ██╔══██╗      ████╗  ██║██║   ██║████╗ ████║██╔══██╗██╔════╝██╔══██╗    ██╔══██╗   ██║
@@ -28,43 +62,18 @@ def get_guess(current_low, current_high):
     g = (current_low + current_high) // 2
     return g
 
-def pick_number():
+def pick_number(player_name, pick_low, pick_high):
     print(" ")
-    pick_low = input("What do you want the low to be?")
-
-    while True:
-        if low.isnumeric():
-            print(" ")
-            print("Thanks")
-            print(" ")
-            break
-        else:
-            print(" ")
-            print("Please type a number")
-            print(" ")
-        
-    pick_high = input ("What do you want the high to be")
-
-    while True:
-        if high.isnumeric():
-            print(" ")
-            print("Thanks")
-            break
-        else:
-            print(" ")
-            print("Please type a number")
-        
-    print(" ")
-    print("Think of a number between " + str(pick_low) + " to " + str(pick_high) + ".")
+    print(player_name + ", think of a number between " + str(pick_low) + " to " + str(pick_high) + ".")
     print(" ")
     input("Press enter when your ready ")
 
 
-def check_guess(guess):
+def check_guess(guess, player_name):
     print(" ")
-    print("Is " + str(guess) + " your number?")
+    print("Is " + str(guess) + " your number, " + player_name + "?")
     print(" ")
-    r = input("If it was correct put 'yes'. If it was to high put 'lower'. If it was too low put 'higher'.    ")
+    r = input(player_name + ", if it was correct put 'yes'. If it was to high put 'lower'. If it was too low put 'higher'.    ")
     r = r.lower()
 
     if r == 'yes' or r == 'y':
@@ -81,12 +90,12 @@ def check_guess(guess):
 def show_result():
     pass
 
-def play_again():
+def play_again(player_name):
     while True:
         print(" ")
         print("I got it!")
         print(" ")
-        decision = input("Would you like to play again? (y/n) ")
+        decision = input("Would you like to play again, " + player_name + "? (y/n) ")
         decision = decision.lower()
 
         if decision == 'y' or decision == 'yes':
@@ -98,16 +107,21 @@ def play_again():
             print("I don't understand. Please enter 'y' or 'n'.")
 
 def play():
+          
     result = -1
 
-    pick_high_and_low()
+    player_name = get_name()
+
+    pick_low = pick_lowz(player_name)
+      
+    pick_high = pick_highz(player_name)
     
-    pick_number()
+    pick_number(player_name, pick_high, pick_low)
     
     while result != 0:
         guess = get_guess(current_low, current_high)
 
-        result = check_guess(guess)
+        result = check_guess(guess, player_name)
 
         if result == -1:
             current_high = guess
