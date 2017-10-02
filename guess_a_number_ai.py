@@ -10,20 +10,20 @@ import random
 
 def get_name():
     print(" ")
-    player_name = input("What's your name?    ")
+    pn = input("What's your name?    ")
     print(" ")
-    return player_name
+    return pn
 
 def pick_lowz(player_name):
     print(" ")
 
     while True:
-        pick_low = input("What do you want the low to be, " + player_name + "?")
+        pick_low = input("What do you want the low to be, " + player_name + "?     ")
         if pick_low.isnumeric():
             print(" ")
             print("Thanks")
             print(" ")
-            break
+            return pick_low
         else:
             print(" ")
             print("Please type a number")
@@ -31,11 +31,11 @@ def pick_lowz(player_name):
             
 def pick_highz(player_name):
     while True:
-        pick_high = input ("What do you want the high to be, " + player_name + "?")
+        pick_high = input ("What do you want the high to be, " + player_name + "?     ")
         if pick_high.isnumeric():
             print(" ")
             print("Thanks")
-            break
+            return pick_high
         else:
             print(" ")
             print("Please type a number")
@@ -59,7 +59,7 @@ def show_credits():
  ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═════╝     ╚═════╝    ╚═╝           ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝""")
     
 def get_guess(current_low, current_high):
-    g = (current_low + current_high) // 2
+    g = (int(current_low) + int(current_high)) // 2
     return g
 
 def pick_number(player_name, pick_low, pick_high):
@@ -106,17 +106,19 @@ def play_again(player_name):
             print(" ")
             print("I don't understand. Please enter 'y' or 'n'.")
 
-def play():
+def play(player_name):
           
     result = -1
-
-    player_name = get_name()
 
     pick_low = pick_lowz(player_name)
       
     pick_high = pick_highz(player_name)
     
-    pick_number(player_name, pick_high, pick_low)
+    pick_number(player_name, pick_low, pick_high)
+
+    current_low = pick_low
+
+    current_high = pick_high
     
     while result != 0:
         guess = get_guess(current_low, current_high)
@@ -136,10 +138,12 @@ def play():
 # Game starts running here
 show_start_screen()
 
+player_name = get_name()
+
 playing = True
 
 while playing:
-    play()
-    playing = play_again()
+    play(player_name)
+    playing = play_again(player_name)
 
 show_credits()
