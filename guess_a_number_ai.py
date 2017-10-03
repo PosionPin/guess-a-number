@@ -2,7 +2,7 @@
 #9/27/17
 #A program where the player thinks of a number and the computer tries to predict it.
 
-
+import math
 import random
 
 
@@ -62,18 +62,25 @@ def get_guess(current_low, current_high):
     g = (int(current_low) + int(current_high)) // 2
     return g
 
+def get_tries(pick_low, pick_high):
+    tries = math.ceil(math.log(((int(pick_high) - int(pick_low))-1),2))
+    return tries
+
 def pick_number(player_name, pick_low, pick_high):
     print(" ")
     print(player_name + ", think of a number between " + str(pick_low) + " to " + str(pick_high) + ".")
     print(" ")
     input("Press enter when your ready ")
 
+def state_tries(tries, turns):
+    print(" ")
+    print("I have " + str((tries - turns)) + " out of " + str(tries) + " tries left.")
 
-def check_guess(guess, player_name):
+def check_guess(tries, guess, player_name):
     print(" ")
     print("Is " + str(guess) + " your number, " + player_name + "?")
     print(" ")
-    r = input(player_name + ", if it was correct put 'yes'. If it was to high put 'lower'. If it was too low put 'higher'.    ")
+    r = input(player_name + ", if it was correct put 'yes'. If it was to high put 'lower'. If it was to low put 'higher'.    ")
     r = r.lower()
 
     if r == 'yes' or r == 'y':
@@ -113,6 +120,10 @@ def play(player_name):
     pick_low = pick_lowz(player_name)
       
     pick_high = pick_highz(player_name)
+
+    tries = get_tries(pick_low,pick_high)
+
+    turns = (tries - 1)
     
     pick_number(player_name, pick_low, pick_high)
 
@@ -123,13 +134,17 @@ def play(player_name):
     while result != 0:
         guess = get_guess(current_low, current_high)
 
-        result = check_guess(guess, player_name)
+        state_tries(tries, turns)
+
+        result = check_guess(tries, guess, player_name)
 
         if result == -1:
             current_high = guess
+            turns -= 1
 
         elif result == 1:
             current_low = guess
+            turns -= 1
 
 
 
