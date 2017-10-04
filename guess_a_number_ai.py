@@ -97,13 +97,10 @@ def check_guess(tries, guess, player_name):
 def show_result():
     pass
 
-def play_again(player_name, tries, turns):
+def play_again(player_name):
     while True:
         print(" ")
-        if tries == turns:
-            print("Play by the rules next time meanie:(")
-        else:
-            print("I got it")
+        print("I win")
         print(" ")
         decision = input("Would you like to play again, " + player_name + "? (y/n) ")
         decision = decision.lower()
@@ -159,6 +156,7 @@ def play(player_name):
                 current_low = guess
                 turns += 1
 
+
     show_result()
 
 # Game starts running here
@@ -170,6 +168,6 @@ playing = True
 
 while playing:
     play(player_name)
-    playing = play_again(player_name, tries, turns)
+    playing = play_again(player_name)
 
 show_credits()
