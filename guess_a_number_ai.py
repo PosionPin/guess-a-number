@@ -74,7 +74,7 @@ def pick_number(player_name, pick_low, pick_high):
 
 def state_tries(tries, turns):
     print(" ")
-    print("I have " + str((tries - turns)) + " out of " + str(tries) + " tries left.")
+    print("I have " + str(turns) + " out of " + str(tries) + " tries left.")
 
 def check_guess(tries, guess, player_name):
     print(" ")
@@ -97,10 +97,13 @@ def check_guess(tries, guess, player_name):
 def show_result():
     pass
 
-def play_again(player_name):
+def play_again(player_name, tries, turns):
     while True:
         print(" ")
-        print("I got it!")
+        if tries == turns:
+            print("Play by the rules next time meanie:(")
+        else:
+            print("I got it")
         print(" ")
         decision = input("Would you like to play again, " + player_name + "? (y/n) ")
         decision = decision.lower()
@@ -123,7 +126,7 @@ def play(player_name):
 
     tries = get_tries(pick_low,pick_high)
 
-    turns = (tries - 1)
+    turns = 1
     
     pick_number(player_name, pick_low, pick_high)
 
@@ -139,14 +142,22 @@ def play(player_name):
         result = check_guess(tries, guess, player_name)
 
         if result == -1:
-            current_high = guess
-            turns -= 1
+            if turns == tries:
+                print(" ")
+                print("I think you made a mistake somewhere")
+                result = 0
+            else:
+                current_high = guess
+                turns += 1
 
         elif result == 1:
-            current_low = guess
-            turns -= 1
-
-
+            if turns == tries:
+                print(" ")
+                print("I think you made a mistake somewhere")
+                result = 0
+            else:
+                current_low = guess
+                turns += 1
 
     show_result()
 
@@ -159,6 +170,6 @@ playing = True
 
 while playing:
     play(player_name)
-    playing = play_again(player_name)
+    playing = play_again(player_name, tries, turns)
 
 show_credits()
