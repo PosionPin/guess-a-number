@@ -1,0 +1,138 @@
+██████╗ ██╗   ██╗███████╗███████╗███████╗       █████╗       ███╗   ██╗██╗   ██╗███╗   ███╗██████╗ ███████╗██████╗      █████╗    ██╗
+██╔════╝ ██║   ██║██╔════╝██╔════╝██╔════╝      ██╔══██╗      ████╗  ██║██║   ██║████╗ ████║██╔══██╗██╔════╝██╔══██╗    ██╔══██╗   ██║
+██║  ███╗██║   ██║█████╗  ███████╗███████╗█████╗███████║█████╗██╔██╗ ██║██║   ██║██╔████╔██║██████╔╝█████╗  ██████╔╝    ███████║   ██║
+██║   ██║██║   ██║██╔══╝  ╚════██║╚════██║╚════╝██╔══██║╚════╝██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██╗██╔══╝  ██╔══██╗    ██╔══██║   ██║
+╚██████╔╝╚██████╔╝███████╗███████║███████║      ██║  ██║      ██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██████╔╝███████╗██║  ██║    ██║  ██║██╗██║
+╚═════╝  ╚═════╝ ╚══════╝╚══════╝╚══════╝      ╚═╝  ╚═╝      ╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝    ╚═╝  ╚═╝╚═╝╚═╝
+
+What's your name?    Chase
+
+
+What do you want the low to be, Chase?     1
+
+Thanks
+
+What do you want the high to be, Chase?     100
+
+Thanks
+
+Chase, think of a number between 1 to 100.
+
+Press enter when your ready
+
+I have 1 out of 7 tries left.
+
+Is 50 your number, Chase?
+
+Chase, if it was correct put 'yes'. If it was to high put 'lower'. If it was to low put 'higher'.    higher
+
+I have 2 out of 7 tries left.
+
+Is 75 your number, Chase?
+
+Chase, if it was correct put 'yes'. If it was to high put 'lower'. If it was to low put 'higher'.    higher
+
+I have 3 out of 7 tries left.
+
+Is 87 your number, Chase?
+
+Chase, if it was correct put 'yes'. If it was to high put 'lower'. If it was to low put 'higher'.    lower
+
+I have 4 out of 7 tries left.
+
+Is 81 your number, Chase?
+
+Chase, if it was correct put 'yes'. If it was to high put 'lower'. If it was to low put 'higher'.    higher
+
+I have 5 out of 7 tries left.
+
+Is 84 your number, Chase?
+
+Chase, if it was correct put 'yes'. If it was to high put 'lower'. If it was to low put 'higher'.    lower
+
+I have 6 out of 7 tries left.
+
+Is 82 your number, Chase?
+
+Chase, if it was correct put 'yes'. If it was to high put 'lower'. If it was to low put 'higher'.    higher
+
+I have 7 out of 7 tries left.
+
+Is 83 your number, Chase?
+
+Chase, if it was correct put 'yes'. If it was to high put 'lower'. If it was to low put 'higher'.    yes
+
+I win
+
+Would you like to play again, Chase? (y/n) y
+
+What do you want the low to be, Chase?     20
+
+Thanks
+
+What do you want the high to be, Chase?     50
+
+Thanks
+
+Chase, think of a number between 20 to 50.
+
+Press enter when your ready
+
+I have 1 out of 5 tries left.
+
+Is 35 your number, Chase?
+
+Chase, if it was correct put 'yes'. If it was to high put 'lower'. If it was to low put 'higher'.    lower
+
+I have 2 out of 5 tries left.
+
+Is 27 your number, Chase?
+
+Chase, if it was correct put 'yes'. If it was to high put 'lower'. If it was to low put 'higher'.    lower
+
+I have 3 out of 5 tries left.
+
+Is 23 your number, Chase?
+
+Chase, if it was correct put 'yes'. If it was to high put 'lower'. If it was to low put 'higher'.    lower
+
+I have 4 out of 5 tries left.
+
+Is 21 your number, Chase?
+
+Chase, if it was correct put 'yes'. If it was to high put 'lower'. If it was to low put 'higher'.    Im going to lie lol
+
+Please type 'yes' if it was correct, 'lower' if it was too high, or 'higher' if it was too low
+
+I have 4 out of 5 tries left.
+
+Is 21 your number, Chase?
+
+Chase, if it was correct put 'yes'. If it was to high put 'lower'. If it was to low put 'higher'.    k
+
+Please type 'yes' if it was correct, 'lower' if it was too high, or 'higher' if it was too low
+
+I have 4 out of 5 tries left.
+
+Is 21 your number, Chase?
+
+Chase, if it was correct put 'yes'. If it was to high put 'lower'. If it was to low put 'higher'.    LOWER
+
+I have 5 out of 5 tries left.
+
+Is 20 your number, Chase?
+
+Chase, if it was correct put 'yes'. If it was to high put 'lower'. If it was to low put 'higher'.    LOwer
+
+I think you made a mistake somewhere
+
+I win
+
+Would you like to play again, Chase? (y/n) no
+
+██████╗██████╗ ███████╗ █████╗ ████████╗███████╗██████╗     ██████╗ ██╗   ██╗        ██████╗██╗  ██╗ █████╗ ███████╗███████╗
+██╔════╝██╔══██╗██╔════╝██╔══██╗╚══██╔══╝██╔════╝██╔══██╗    ██╔══██╗╚██╗ ██╔╝██╗    ██╔════╝██║  ██║██╔══██╗██╔════╝██╔════╝
+██║     ██████╔╝█████╗  ███████║   ██║   █████╗  ██║  ██║    ██████╔╝ ╚████╔╝ ╚═╝    ██║     ███████║███████║███████╗█████╗
+██║     ██╔══██╗██╔══╝  ██╔══██║   ██║   ██╔══╝  ██║  ██║    ██╔══██╗  ╚██╔╝  ██╗    ██║     ██╔══██║██╔══██║╚════██║██╔══╝
+╚██████╗██║  ██║███████╗██║  ██║   ██║   ███████╗██████╔╝    ██████╔╝   ██║   ╚═╝    ╚██████╗██║  ██║██║  ██║███████║███████╗
+╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═════╝     ╚═════╝    ╚═╝           ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝
