@@ -7,14 +7,102 @@ import random
 
 
 # helper functions
+def show_start_screen():
+    print(""" _____                               _   _                 _               
+|  __ \                             | \ | |               | |              
+| |  \/_   _  ___  ___ ___    __ _  |  \| |_   _ _ __ ___ | |__   ___ _ __ 
+| | __| | | |/ _ \/ __/ __|  / _` | | . ` | | | | '_ ` _ \| '_ \ / _ \ '__|
+| |_\ \ |_| |  __/\__ \__ \ | (_| | | |\  | |_| | | | | | | |_) |  __/ |   
+ \____/\__,_|\___||___/___/  \__,_| \_| \_/\__,_|_| |_| |_|_.__/ \___|_|   """)
 
-def get_name():
+
+def show_credits():
+    print("""___  ___          _       ______         _____ _                     ______             _             
+|  \/  |         | |      | ___ \       /  __ \ |                    |  _  \           | |            
+| .  . | __ _  __| | ___  | |_/ /_   _  | /  \/ |__   __ _ ___  ___  | | | |_   _ _ __ | | __ _ _ __  
+| |\/| |/ _` |/ _` |/ _ \ | ___ \ | | | | |   | '_ \ / _` / __|/ _ \ | | | | | | | '_ \| |/ _` | '_ \ 
+| |  | | (_| | (_| |  __/ | |_/ / |_| | | \__/\ | | | (_| \__ \  __/ | |/ /| |_| | | | | | (_| | |_) |
+\_|  |_/\__,_|\__,_|\___| \____/ \__, |  \____/_| |_|\__,_|___/\___| |___/  \__,_|_| |_|_|\__,_| .__/ 
+                                  __/ |                                                        | |    
+                                 |___/                                                         |_|""")
+    
+def get_guess():
+    while True:
+        guess = input("Guess a number: ")
+
+        if guess.isnumeric():
+            guess = int(guess)
+            return guess
+        else:
+            print("You must enter a positive number you nimrod.")
+
+def pick_number():
+    print(" ")
+    print("I'm thinking of a number from " + str(low) + " to " + str(high) +". You have " + str(limit) + " tries.")
+
+    return random.randint(low, high)
+
+def check_guess(guess, rand):
+    if guess < rand:
+        print(" ")
+        print("You guessed too low.")
+    elif guess > rand:
+        print(" ")
+        print("You guessed too high.")
+
+def show_result(guess, rand):
+    if guess == rand:
+        print(" ")
+        print("You win! now go get a life.")
+        print(" ")
+    else:
+        print(" ")
+        print("Wow you're really jsut a waste in space aren't you? The number was " + str(rand) + ".")
+        print(" ")
+
+def play_again():
+    while True:
+        decision = input("Would you like to play again? (y/n) ")
+        decision = decision.lower()
+
+        if decision == 'y' or decision == 'yes':
+            return True
+        elif decision == 'n' or decision == 'no':
+            return False
+        else:
+            print("Wow you can't even type y or n.")
+            print(" ")
+
+def play():
+    guess = -1
+    tries = 0
+
+    rand = pick_number()
+    
+    while guess != rand and tries < limit:
+        guess = get_guess()
+        check_guess(guess, rand)
+
+        tries += 1
+
+    show_result(guess, rand)
+
+def which_game():
+    choice = input("Type 'ai' for Guess-a-number-AI or type 'gan' for Guess-a-Number.")
+    choice = choice.lower()
+
+    if choice == 'ai':
+        return 1
+    elif choice == 'gan':
+        return -1
+               
+def a_get_name():
     print(" ")
     pn = input("What's your name?    ")
     print(" ")
     return pn
 
-def pick_lowz(player_name):
+def a_pick_lowz(player_name):
     print(" ")
 
     while True:
@@ -29,7 +117,7 @@ def pick_lowz(player_name):
             print("Please type a number")
             print(" ")
             
-def pick_highz(player_name):
+def a_pick_highz(player_name):
     while True:
         pick_high = input ("What do you want the high to be, " + player_name + "?     ")
         if pick_high.isnumeric():
@@ -41,7 +129,7 @@ def pick_highz(player_name):
             print("Please type a number")
             print(" ")
 
-def show_start_screen():
+def a_show_start_screen():
     print(""" ██████╗ ██╗   ██╗███████╗███████╗███████╗       █████╗       ███╗   ██╗██╗   ██╗███╗   ███╗██████╗ ███████╗██████╗      █████╗    ██╗
 ██╔════╝ ██║   ██║██╔════╝██╔════╝██╔════╝      ██╔══██╗      ████╗  ██║██║   ██║████╗ ████║██╔══██╗██╔════╝██╔══██╗    ██╔══██╗   ██║
 ██║  ███╗██║   ██║█████╗  ███████╗███████╗█████╗███████║█████╗██╔██╗ ██║██║   ██║██╔████╔██║██████╔╝█████╗  ██████╔╝    ███████║   ██║
@@ -49,7 +137,7 @@ def show_start_screen():
 ╚██████╔╝╚██████╔╝███████╗███████║███████║      ██║  ██║      ██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██████╔╝███████╗██║  ██║    ██║  ██║██╗██║
  ╚═════╝  ╚═════╝ ╚══════╝╚══════╝╚══════╝      ╚═╝  ╚═╝      ╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝    ╚═╝  ╚═╝╚═╝╚═╝""")
 
-def show_credits():
+def a_show_credits():
     print(" ")
     print(""" ██████╗██████╗ ███████╗ █████╗ ████████╗███████╗██████╗     ██████╗ ██╗   ██╗        ██████╗██╗  ██╗ █████╗ ███████╗███████╗
 ██╔════╝██╔══██╗██╔════╝██╔══██╗╚══██╔══╝██╔════╝██╔══██╗    ██╔══██╗╚██╗ ██╔╝██╗    ██╔════╝██║  ██║██╔══██╗██╔════╝██╔════╝
@@ -58,25 +146,25 @@ def show_credits():
 ╚██████╗██║  ██║███████╗██║  ██║   ██║   ███████╗██████╔╝    ██████╔╝   ██║   ╚═╝    ╚██████╗██║  ██║██║  ██║███████║███████╗
  ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═════╝     ╚═════╝    ╚═╝           ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝""")
     
-def get_guess(current_low, current_high):
+def a_get_guess(current_low, current_high):
     g = (int(current_low) + int(current_high)) // 2
     return g
 
-def get_tries(pick_low, pick_high):
+def a_get_tries(pick_low, pick_high):
     tries = math.ceil(math.log(((int(pick_high) - int(pick_low))-1),2))
     return tries
 
-def pick_number(player_name, pick_low, pick_high):
+def a_pick_number(player_name, pick_low, pick_high):
     print(" ")
     print(player_name + ", think of a number between " + str(pick_low) + " to " + str(pick_high) + ".")
     print(" ")
     input("Press enter when your ready ")
 
-def state_tries(tries, turns):
+def a_state_tries(tries, turns):
     print(" ")
     print("I have " + str(turns) + " out of " + str(tries) + " tries left.")
 
-def check_guess(tries, guess, player_name):
+def a_check_guess(tries, guess, player_name):
     print(" ")
     print("Is " + str(guess) + " your number, " + player_name + "?")
     print(" ")
@@ -94,10 +182,10 @@ def check_guess(tries, guess, player_name):
         print("Please type 'yes' if it was correct, 'lower' if it was too high, or 'higher' if it was too low")
 
 
-def show_result():
+def a_show_result():
     pass
 
-def play_again(player_name):
+def a_play_again(player_name):
     while True:
         print(" ")
         print("I win")
@@ -113,30 +201,30 @@ def play_again(player_name):
             print(" ")
             print("I don't understand. Please enter 'y' or 'n'.")
 
-def play(player_name):
+def a_play(player_name):
           
     result = -1
 
-    pick_low = pick_lowz(player_name)
+    pick_low = a_pick_lowz(player_name)
       
-    pick_high = pick_highz(player_name)
+    pick_high = a_pick_highz(player_name)
 
-    tries = get_tries(pick_low,pick_high)
+    tries = a_get_tries(pick_low,pick_high)
 
     turns = 1
     
-    pick_number(player_name, pick_low, pick_high)
+    a_pick_number(player_name, pick_low, pick_high)
 
     current_low = pick_low
 
     current_high = pick_high
     
     while result != 0:
-        guess = get_guess(current_low, current_high)
+        guess = a_get_guess(current_low, current_high)
 
-        state_tries(tries, turns)
+        a_state_tries(tries, turns)
 
-        result = check_guess(tries, guess, player_name)
+        result = a_check_guess(tries, guess, player_name)
 
         if result == -1:
             if turns == tries:
@@ -157,17 +245,42 @@ def play(player_name):
                 turns += 1
 
 
-    show_result()
+    a_show_result()
 
-# Game starts running here
-show_start_screen()
 
-player_name = get_name()
 
-playing = True
+choice = which_game()
 
-while playing:
-    play(player_name)
-    playing = play_again(player_name)
+#A.I Game starts running here
 
-show_credits()
+if choice == 1:
+    a_show_start_screen()
+
+    player_name = a_get_name()
+
+    playing = True
+
+    while playing:
+        a_play(player_name)
+        playing = a_play_again(player_name)
+
+    a_show_credits()
+
+#Guess-a-number starts here
+    
+elif choice == -1:
+    
+    low = 1
+    high = 100
+    limit = math.ceil(math.log(100, 2))
+    
+    show_start_screen()
+
+    playing = True
+
+    while playing:
+        play()
+        playing = play_again()
+
+    show_credits()
+
